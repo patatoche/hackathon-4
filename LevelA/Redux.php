@@ -19,7 +19,14 @@ class Redux
     public function getReductedNumber()
     {
         $result = $this->number;
-        // @TODO
-        return $result;
+
+        if (strlen($result)===1) {
+
+            return $result;
+        }
+
+        $this->number = array_sum(str_split($result));
+
+        return $this->getReductedNumber();
     }
 };
